@@ -17,9 +17,7 @@ category:           Web
 -- A URL where users can report bugs.
 -- bug-reports:
 
-extra-source-files:
-  LICENSE
-  README.md
+extra-source-files: LICENSE
 
 common shared
   ghc-options:

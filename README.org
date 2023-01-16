@@ -1,0 +1,18 @@
+* my qmk configuration
+a marriage between [[https://github.com/manna-harbour/miryoku][miryoku]] and [[https://github.com/Apsu/Adept][adept]]
+
+* keymap reused [[https://github.com/callum-oakley/keymap]]
+[[keymap.svg]]
+* moonlander oryx link
+[[https://configure.zsa.io/moonlander/layouts/yB7w0/latest/0]]
+* how to build qmk firmware locally
+#+begin_src shell
+cp -R keymap/keyboards/moonlander/keymaps/yuanw qmk_firmware/keyboards/moonlander/keymaps/yuanw
+cp -R keymap/users/yuanw qmk_firmware/users/yuanw
+z qmk_firmware
+util/docker_build.sh moonlander:yuanw
+#+end_src
+* how to flash the firmware
+#+begin_src shell
+wally-cli .build/moonlander_yuanw.bin
+#+end_src
