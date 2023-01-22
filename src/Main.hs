@@ -70,8 +70,8 @@ deleteExistConfig target = do
 
 copyConfig :: Target -> IO ()
 copyConfig target = do
-  cptree ("./keyboards" </> decodeString (keyboard target) </> "keymaps" </> decodeString (user target)) (decodeString (qmkRepoLocation target) </> "keyboards" </> decodeString (keyboard target) </> "keymaps" </> decodeString (user target))
-  cptree ("./users" </> decodeString (user target)) (decodeString (qmkRepoLocation target) </> "users" </> decodeString (user target))
+  cptree ("./qmk/keyboards" </> decodeString (keyboard target) </> "keymaps" </> decodeString (user target)) (decodeString (qmkRepoLocation target) </> "keyboards" </> decodeString (keyboard target) </> "keymaps" </> decodeString (user target))
+  cptree ("./qmk/users" </> decodeString (user target)) (decodeString (qmkRepoLocation target) </> "users" </> decodeString (user target))
 
 build :: IO ()
 build = do
