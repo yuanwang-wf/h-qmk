@@ -1,11 +1,11 @@
 cabal-version:      2.4
-name:               haskell-template
+name:               h-qmk
 version:            0.1.0.0
 license:            MIT
-copyright:          2022 Sridhar Ratnakumar
-maintainer:         srid@srid.ca
-author:             Sridhar Ratnakumar
-category:           Web
+copyright:          2023 Yuan Wang
+maintainer:         me@yuanwang.ca
+author:             Yuan Wang
+category:           Other
 
 -- TODO: Before hackage release.
 -- A short (one-line) description of the package.
@@ -74,21 +74,23 @@ common shared
   build-depends:
     , aeson
     , async
-    , base          >=4.13.0.0 && <4.18.0.0.0
+    , base                  >=4.13.0.0 && <4.18.0.0.0
     , data-default
     , directory
     , filepath
     , mtl
     , optics-core
+    , optparse-applicative
     , profunctors
-    , relude        >=1.0
+    , relude                >=1.0
     , shower
     , time
+    , turtle
     , with-utf8
 
   hs-source-dirs:     src
   default-language:   Haskell2010
 
-executable haskell-template
+executable h-qmk
   import:  shared
   main-is: Main.hs

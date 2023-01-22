@@ -25,7 +25,7 @@
           # has only one.
           haskellProjects.main = {
             packages = {
-              haskell-template.root = ./.;
+              h-qmk.root = ./.;
             };
             # overrides = self: super: {}
             hlsCheck.enable = false;
@@ -64,7 +64,7 @@
           };
 
           # Default package.
-          packages.default = self'.packages.main-haskell-template;
+          packages.default = self'.packages.main-h-qmk;
 
           # Default shell.
           devShells.default =
