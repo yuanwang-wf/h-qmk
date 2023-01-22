@@ -5,6 +5,7 @@ import Main.Utf8 qualified as Utf8
 import Options.Applicative
 import System.Directory (doesDirectoryExist, removeDirectoryRecursive)
 import Turtle hiding (header)
+import Prelude hiding (FilePath)
 
 {- |
  Main entry point.
@@ -76,5 +77,5 @@ copyConfig target = do
 
 build :: String -> IO ()
 build path = do
-  cd path
+  cd (decodeString path)
   view $ inshellWithErr "alacritty -e util/docker_build.sh moonlander:yuanw" empty
