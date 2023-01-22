@@ -59,7 +59,7 @@ run target = do
   if qmkE then putStrLn "found qmk directory" else error "cannot found qmk directory, abort!"
   deleteExistConfig target
   copyConfig target
-  build
+  build (qmkRepoLocation target)
 
 deleteExistConfig :: Target -> IO ()
 deleteExistConfig target = do
@@ -70,10 +70,11 @@ deleteExistConfig target = do
 
 copyConfig :: Target -> IO ()
 copyConfig target = do
+  putStrLn "copyConfig"
   cptree ("./qmk/keyboards" </> decodeString (keyboard target) </> "keymaps" </> decodeString (user target)) (decodeString (qmkRepoLocation target) </> "keyboards" </> decodeString (keyboard target) </> "keymaps" </> decodeString (user target))
   cptree ("./qmk/users" </> decodeString (user target)) (decodeString (qmkRepoLocation target) </> "users" </> decodeString (user target))
 
-build :: IO ()
-build = do
-  cd "/home/yuanw/workspace/qmk_firmware"
+build :: String -> IO ()
+build path = do
+  cd path
   view $ inshellWithErr "alacritty -e util/docker_build.sh moonlander:yuanw" empty
